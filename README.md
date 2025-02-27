@@ -129,6 +129,6 @@ For any questions, feedback, or collaboration opportunities, feel free to reach 
 
 <p align="center">
   Made with ❤️ by <a href="https://github.com/Divith123">Divith123</a>
-  Made with ❤️ by <a href="https://github.com/dilanmelvin">dilanmelvin</a>
+  & <a href="https://github.com/dilanmelvin">dilanmelvin</a>
 </p>
 
