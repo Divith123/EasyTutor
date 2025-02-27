@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Calendar, Clock, Trophy, Users, Filter } from "lucide-react"
@@ -10,7 +9,7 @@ import { Badge } from "@/components/ui/badge"
 
 export default function ContestsPage() {
   const [activeTab, setActiveTab] = useState("upcoming")
-  
+
   // Mock data for upcoming contests
   const upcomingContests = [
     {
@@ -44,7 +43,7 @@ export default function ContestsPage() {
       status: "upcoming",
     },
   ]
-  
+
   // Mock data for ongoing contests
   const ongoingContests = [
     {
@@ -60,7 +59,7 @@ export default function ContestsPage() {
       progress: 70,
     },
   ]
-  
+
   // Mock data for past contests
   const pastContests = [
     {
@@ -106,7 +105,7 @@ export default function ContestsPage() {
       ],
     },
   ]
-  
+
   // Get badge color based on difficulty
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -120,7 +119,7 @@ export default function ContestsPage() {
         return ""
     }
   }
-  
+
   // Format date
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -142,7 +141,7 @@ export default function ContestsPage() {
             Participate in coding competitions to test your skills and compete with others.
           </p>
         </div>
-        
+
         {/* Featured Contest */}
         <Card className="bg-primary text-primary-foreground">
           <CardContent className="p-6 md:p-8">
@@ -179,7 +178,7 @@ export default function ContestsPage() {
             </div>
           </CardContent>
         </Card>
-        
+
         {/* Contest Tabs */}
         <Tabs defaultValue="upcoming" value={activeTab} onValueChange={setActiveTab}>
           <div className="flex items-center justify-between">
@@ -193,7 +192,7 @@ export default function ContestsPage() {
               Filter
             </Button>
           </div>
-          
+
           {/* Upcoming Contests */}
           <TabsContent value="upcoming" className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -226,16 +225,14 @@ export default function ContestsPage() {
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full" asChild>
-                      <Link href={`/contests/${contest.id}`}>
-                        Register
-                      </Link>
+                      <Link href={`/contests/${contest.id}`}>Register</Link>
                     </Button>
                   </CardFooter>
                 </Card>
               ))}
             </div>
           </TabsContent>
-          
+
           {/* Ongoing Contests */}
           <TabsContent value="ongoing" className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -252,5 +249,80 @@ export default function ContestsPage() {
                       </div>
                     </div>
                     <CardTitle>{contest.title}</CardTitle>
-                    <CardDescription\
+                    <CardDescription>{contest.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
+                        <span className="text-sm">Ends: {formatDate(contest.endDate)}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-2 text-muted-foreground" />
+                        <span className="text-sm">Progress: {contest.progress}%</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full" variant="secondary" asChild>
+                      <Link href={`/contests/${contest.id}`}>View Details</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
 
+          {/* Past Contests */}
+          <TabsContent value="past" className="mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pastContests.map((contest) => (
+                <Card key={contest.id}>
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <Badge className={getDifficultyColor(contest.difficulty)}>
+                        {contest.difficulty}
+                      </Badge>
+                      <div className="flex items-center">
+                        <Users className="h-4 w-4 mr-1" />
+                        <span className="text-sm">{contest.participants}</span>
+                      </div>
+                    </div>
+                    <CardTitle>{contest.title}</CardTitle>
+                    <CardDescription>{contest.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
+                        <span className="text-sm">Date: {contest.date}</span>
+                      </div>
+                      <div className="flex flex-col space-y-2">
+                        <p className="text-sm font-medium">Winners:</p>
+                        <ul className="space-y-1">
+                          {contest.winners.map((winner) => (
+                            <li key={winner.rank} className="flex items-center space-x-2">
+                              <span className="font-bold">{winner.rank}.</span>
+                              <img src={winner.avatar} alt={`${winner.name}'s avatar`} className="w-6 h-6 rounded-full" />
+                              <span>{winner.name}</span>
+                              <span className="ml-auto text-sm text-muted-foreground">Score: {winner.score}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full" variant="outline" asChild>
+                      <Link href={`/contests/${contest.id}`}>View Results</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  )
+}
