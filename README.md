@@ -123,10 +123,12 @@ For any questions, feedback, or collaboration opportunities, feel free to reach 
 
 - Email: [contact@easytutor.com](mailto:contact@easytutor.com)
 - GitHub: [@Divith123](https://github.com/Divith123)
+- GitHub: [@dilanmelvin](https://github.com/dilanmelvin)
 
 ---
 
 <p align="center">
   Made with ❤️ by <a href="https://github.com/Divith123">Divith123</a>
+  Made with ❤️ by <a href="https://github.com/dilanmelvin">dilanmelvin</a>
 </p>
 
