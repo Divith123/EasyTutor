@@ -2,10 +2,6 @@
 # 🚀 EasyTutor
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Divith123/EasyTutor/main/public/placeholder.jpg" alt="EasyTutor Logo" width="400" />
-</p>
-
-<p align="center">
   <a href="#features">Features</a> •
   <a href="#getting-started">Getting Started</a> •
   <a href="#usage">Usage</a> •
@@ -133,5 +129,4 @@ For any questions, feedback, or collaboration opportunities, feel free to reach 
 <p align="center">
   Made with ❤️ by <a href="https://github.com/Divith123">Divith123</a>
 </p>
-```
 
