@@ -121,7 +121,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 For any questions, feedback, or collaboration opportunities, feel free to reach out:
 
-- Email: [contact@easytutor.com](mailto:contact@easytutor.com)
+- Email: [hustleronduty@gmail.com](mailto:hustleronduty@gmail.com)
 - GitHub: [@Divith123](https://github.com/Divith123)
 - GitHub: [@dilanmelvin](https://github.com/dilanmelvin)
 
